@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarBlue"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"/>
+
+    <ProgressBar
+            android:id="@+id/progressBarRed"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:theme="@style/AppTheme.red"
+            android:tooltipText="Red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"/>
+
+    <ProgressBar
+            android:id="@+id/progressBarGreen"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:theme="@style/AppTheme.green"
+            android:tooltipText="Green"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarRed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"/>
+
+    <ProgressBar
+            android:id="@+id/progressBarBlue"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:theme="@style/AppTheme.blue"
+            android:tooltipText="Blue"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarGreen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"/>
+
+</android.support.constraint.ConstraintLayout>
