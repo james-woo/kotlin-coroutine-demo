@@ -2,7 +2,7 @@ package me.jameswoo.kotlinCoroutineDemo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ProgressBar
+import android.widget.SeekBar
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.experimental.Job
@@ -10,7 +10,6 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import java.util.Random
-import kotlinx.android.synthetic.main.activity_main.start_button as startButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,15 +31,15 @@ class MainActivity : AppCompatActivity() {
         resetRace()
 
         red = launch(UI) {
-            startRunning(progressBarRed)
+            startRunning(seekBarRed)
         }
 
         green = launch(UI) {
-            startRunning(progressBarGreen)
+            startRunning(seekBarGreen)
         }
 
         blue = launch(UI) {
-            startRunning(progressBarBlue)
+            startRunning(seekBarBlue)
         }
     }
 
@@ -51,17 +50,17 @@ class MainActivity : AppCompatActivity() {
         blue?.cancel()
     }
 
-    private suspend fun startRunning(progressBar: ProgressBar) {
-        progressBar.progress = 0
+    private suspend fun startRunning(seekBar: SeekBar) {
+        seekBar.progress = 0
 
-        while (progressBar.progress < 100 && !end) {
+        while (seekBar.progress < 1000 && !end) {
             delay(10) // coroutine delay does not block thread
-            progressBar.progress += (1..10).random()
+            seekBar.progress += (1..10).random()
         }
 
         if (!end) {
             end = true
-            Toast.makeText(this, "${progressBar.tooltipText} won!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${seekBar.tooltipText} won!", Toast.LENGTH_SHORT).show()
         }
     }
 

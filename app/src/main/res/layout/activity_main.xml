@@ -8,23 +8,26 @@
         tools:context=".MainActivity">
 
     <android.support.v7.widget.AppCompatButton
-            android:id="@+id/start_button"
+            android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBarBlue"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarBlue"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"/>
 
-    <ProgressBar
-            android:id="@+id/progressBarRed"
+    <SeekBar
+            android:id="@+id/seekBarRed"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:theme="@style/AppTheme.red"
             android:tooltipText="Red"
+            android:max = "1000"
+            android:thumb="@drawable/ic_android_red_64dp"
+            android:progressDrawable="@drawable/custom_seekbar_red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,28 +35,34 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"/>
 
-    <ProgressBar
-            android:id="@+id/progressBarGreen"
+    <SeekBar
+            android:id="@+id/seekBarGreen"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:theme="@style/AppTheme.green"
             android:tooltipText="Green"
-            app:layout_constraintTop_toBottomOf="@+id/progressBarRed"
+            android:max = "1000"
+            android:thumb="@drawable/ic_android_green_64dp"
+            android:progressDrawable="@drawable/custom_seekbar_green"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarRed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"/>
 
-    <ProgressBar
-            android:id="@+id/progressBarBlue"
+    <SeekBar
+            android:id="@+id/seekBarBlue"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:theme="@style/AppTheme.blue"
             android:tooltipText="Blue"
-            app:layout_constraintTop_toBottomOf="@+id/progressBarGreen"
+            android:max = "1000"
+            android:thumb="@drawable/ic_android_blue_64dp"
+            android:progressDrawable="@drawable/custom_seekbar_blue"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarGreen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="8dp"
