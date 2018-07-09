@@ -23,23 +23,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         startButton.setOnClickListener {
-            race()
+            race(cheat = false)
+        }
+
+        cheatButton.setOnClickListener {
+            race(cheat = true)
         }
     }
 
-    private fun race() {
+    private fun race(cheat: Boolean = false) {
         resetRace()
 
         red = launch(UI) {
-            startRunning(seekBarRed)
+            startRunning(redRacer)
         }
 
         green = launch(UI) {
-            startRunning(seekBarGreen)
+            startRunning(greenRacer)
         }
 
         blue = launch(UI) {
-            startRunning(seekBarBlue)
+            startRunning(blueRacer, cheat = cheat)
         }
     }
 
@@ -50,17 +54,17 @@ class MainActivity : AppCompatActivity() {
         blue?.cancel()
     }
 
-    private suspend fun startRunning(seekBar: SeekBar) {
-        seekBar.progress = 0
+    private suspend fun startRunning(racer: SeekBar, cheat: Boolean = false) {
+        racer.progress = 0
 
-        while (seekBar.progress < 1000 && !end) {
-            delay(10) // coroutine delay does not block thread
-            seekBar.progress += (1..10).random()
+        while (racer.progress < 1000 && !end) {
+            if (!cheat) delay(10) // coroutine delay does not block thread
+            racer.progress += (1..10).random()
         }
 
         if (!end) {
             end = true
-            Toast.makeText(this, "${seekBar.tooltipText} won!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${racer.tooltipText} won!", Toast.LENGTH_SHORT).show()
         }
     }
 
